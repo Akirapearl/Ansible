@@ -1,0 +1,18 @@
+---
+- name: Revisit to Ansible Playbooks
+  hosts: webserver
+
+  tasks:
+  - name: Upgrade all packages
+    ansible.builtin.dnf:
+      name: "*"
+      state: latest
+  - name: Install latest Apache
+    ansible.builtin.dnf:
+      name: httpd
+      state: latest  
+  - name: Start service httpd, if not started
+    ansible.builtin.service:
+      name: httpd
+      state: started
+    
