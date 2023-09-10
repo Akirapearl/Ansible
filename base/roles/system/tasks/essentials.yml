@@ -1,0 +1,23 @@
+---
+  - name: Upgrade all packages
+    ansible.builtin.dnf:
+      name: "*"
+      state: latest
+
+  - name: Remove not required packages
+    ansible.builtin.dnf:
+      autoremove: yes
+
+  - name: Install latest Apache
+    ansible.builtin.dnf:
+      # name: httpd
+      # Introduced package variables at base/group_vars/all --> Triggers ALL hosts
+      name: "{{ packages }}"
+      state: latest  
+
+  - name: Start service httpd
+    ansible.builtin.service:
+      name: httpd
+      # Try on first execution --> state: restarted
+      state: started
+      enabled: yes
