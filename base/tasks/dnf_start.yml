@@ -32,11 +32,11 @@
       dest: /etc/ssh/sshd_config
       regexp: "^#PasswordAuthentication yes"
       line: "PasswordAuthentication no"
-    register: ssh_config
+    register: sshd_config
 
   - name: Restart SSH deamon
     ansible.builtin.service:
       name: sshd
       state: restarted
     when: sshd_config.changed
-    
+
