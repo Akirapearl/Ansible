@@ -1,2 +1,2 @@
-[lab-vms]
-rocky_web ansible_host=10.0.2.6
+[lab_vms]
+rocky_web ansible_host=10.0.2.6 ansible_user=melo 
