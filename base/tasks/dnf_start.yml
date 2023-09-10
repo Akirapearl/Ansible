@@ -1,0 +1,30 @@
+---
+- name: Revisit to Ansible Playbooks
+  hosts: webserver
+# This playbook contains basic tasks, my main focus is to get more familiar with how Ansible works as well as 
+# creating a reasonably easy setup that can also be replicated on a production/homelab environment.
+  tasks:
+  - name: Upgrade all packages
+    ansible.builtin.dnf:
+      name: "*"
+      state: latest
+
+  - name: Remove not required packages
+    ansible.builtin.dnf:
+      autoremove: yes
+
+  - name: Install latest Apache
+    ansible.builtin.dnf:
+      # name: httpd
+      # Introduced package variables at base/group_vars/all --> Triggers ALL hosts
+      name: "{{ packages }}"
+      state: latest  
+
+  - name: Start service httpd
+    ansible.builtin.service:
+      name: httpd
+      state: started
+
+  - name: Disable password authentication for SSH
+    ansible.builtin.lineinfile:
+      dest: /etc/ssh/sshd_config
