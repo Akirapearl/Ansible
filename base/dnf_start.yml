@@ -22,4 +22,4 @@
     ansible.builtin.service:
       name: httpd
       state: started
-    
+    #when: state == "stopped"
