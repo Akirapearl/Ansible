@@ -1,2 +1,2 @@
-[webserver]
-10.0.2.6
+[lab-vms]
+rocky_web ansible_host=10.0.2.6
