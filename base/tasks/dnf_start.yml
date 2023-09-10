@@ -23,8 +23,20 @@
   - name: Start service httpd
     ansible.builtin.service:
       name: httpd
+      # Try on first execution --> state: restarted
       state: started
+      enabled: yes
 
   - name: Disable password authentication for SSH
     ansible.builtin.lineinfile:
       dest: /etc/ssh/sshd_config
+      regexp: "^#PasswordAuthentication yes"
+      line: "PasswordAuthentication no"
+    register: ssh_config
+
+  - name: Restart SSH deamon
+    ansible.builtin.service:
+      name: sshd
+      state: restarted
+    when: sshd_config.changed
+    
