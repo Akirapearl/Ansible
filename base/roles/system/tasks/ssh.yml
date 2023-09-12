@@ -4,10 +4,12 @@
       dest: /etc/ssh/sshd_config
       regexp: "^#PasswordAuthentication yes"
       line: "PasswordAuthentication no"
-    register: sshd_config
+    #register: sshd_config
+    notify: Restart SSH daemon
+    # It will notify the handler everytime the file changes
 
-  - name: Restart SSH deamon
-    ansible.builtin.service:
-      name: sshd
-      state: restarted
-    when: sshd_config.changed
+  - meta: flush handlers 
+  #force ansible to execute handler before (otherwise, it will do so after
+  #all other steps are executed)
+
+  
