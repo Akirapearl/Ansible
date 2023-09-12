@@ -8,8 +8,7 @@
     notify: Restart SSH daemon
     # It will notify the handler everytime the file changes
 
-  - meta: flush handlers 
+  - meta: flush_handlers 
   #force ansible to execute handler before (otherwise, it will do so after
   #all other steps are executed)
 
-  
