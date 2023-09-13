@@ -6,7 +6,7 @@
       line: "PasswordAuthentication no"
     #register: sshd_config
     notify: Restart SSH daemon
-    # It will notify the handler everytime the file changes
+    # It will notify the /handlers/main file everytime the file changes
 
   - meta: flush_handlers 
   #force ansible to execute handler before (otherwise, it will do so after
