@@ -12,27 +12,25 @@
 
 
 ### base directory
-1. First playbook
-- Installing software to Rocky/RHEL based linux server/VM
-- Starting Services
-- Hardening SSH access by disabling password authentication
+1. First contents - Rocky linux target (VM)
+- Getting into ansible.cfg file & inventory definition
+- Installing software to use VM as web server
+- Updating packages
+- Managing Services (httpd)
+- Hardening SSH access by disabling password authentication (regex)
+- To-do: Apply cron-job
 
-### project01 directory
-2. Applying learned concepts
-- Real life-oriented scenario, not just a base preparation for a server
-
-3. Potential implementation
-- Deployment of a Jenkins server for CI/CD workflows
-- Preparation of test/pre-prod environment for NodeJS applications
-- 
+2. (to-do) One Step further - Local irl server (HP EliteDesk 800 G2 Micro). [1]
+- Installing software to use docker containers
+- Hardening SSH by passing config file directly*
+- Idea/Concept: Deploy a local jenkins server for CI/CD learning.
+- Idea/Concept: Use shell/command to get server status at Ansible execution and save as custom log files, if able.
 
 
-<!--
-2. To-be-added ideas
-- Put cronjobs in place
-- Execute commands or scripts on remote machine and report to ansible's output (i.e netstat, lsblk, df-h, uptime)
-- Check server system activity reports and stats. [1]
-- Work with conditionals
-
-[1] https://opensource.com/article/21/3/ansible-sysadmin#:~:text=Gather%20server%20stats%20and%20sars
--->
+* Previously retrieved by using scp command from same server.
+[1] https://support.hp.com/mx-es/document/c04850298
+Intel i5 6500
+16GB ram
+480GB internal storage
+OS: Ubuntu Server 22.04.03 LTS
+Side-project: Add external usb drive HDD drive to be used as containers volume storage
