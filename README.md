@@ -28,9 +28,16 @@
 
 
 * Previously retrieved by using scp command from same server.
+
+
 [1] https://support.hp.com/mx-es/document/c04850298
+
 Intel i5 6500
+
 16GB ram
+
 480GB internal storage
+
 OS: Ubuntu Server 22.04.03 LTS
+
 Side-project: Add external usb drive HDD drive to be used as containers volume storage
