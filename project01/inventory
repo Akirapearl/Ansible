@@ -1,2 +1,0 @@
-[lab_vms]
-rocky_project ansible_host=10.0.2.7 ansible_user=melo 
