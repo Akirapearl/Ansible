@@ -8,7 +8,7 @@
     ansible.builtin.dnf:
       autoremove: yes
 
-  - name: Install latest Apache
+  - name: Install latest httpd (Apache?)
     ansible.builtin.dnf:
       # name: httpd
       # Introduced package variables at base/group_vars/all --> Triggers ALL hosts

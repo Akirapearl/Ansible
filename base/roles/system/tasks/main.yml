@@ -1,4 +1,3 @@
 ---
-#Taken from /tasks/dnf_start.yml file
 - include_tasks: essentials.yml
 - include_tasks: ssh.yml

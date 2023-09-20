@@ -11,3 +11,11 @@
  #Now using roles --> Sort of "smaller tasks files"
   roles:
     - role: system
+
+- hosts: ubuntu
+# This part contains the configurations being applied for my minilab home server.
+# More information on main README file
+  become : yes
+  
+  roles: 
+    - role: ubuntu

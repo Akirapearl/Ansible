@@ -3,5 +3,5 @@
     ansible.builtin.service:
       name: sshd
       state: restarted
-    #when: sshd_config.changed
+    when: sshd_config.changed
     
