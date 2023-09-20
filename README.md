@@ -40,4 +40,4 @@ Intel i5 6500
 
 OS: Ubuntu Server 22.04.03 LTS
 
-Side-project: Add external usb drive HDD drive to be used as containers volume storage
+Side-project: Add external HDD drive to be used as containers volume storage
