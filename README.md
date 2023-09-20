@@ -27,7 +27,7 @@
 - Idea/Concept: Use shell/command to get server status at Ansible execution and save as custom log files, if able.
 
 
-* Previously retrieved by using scp command from same server.
+> *Previously retrieved by using scp command from same server.
 
 
 [1] https://support.hp.com/mx-es/document/c04850298
