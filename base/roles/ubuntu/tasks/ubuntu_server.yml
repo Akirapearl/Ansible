@@ -9,6 +9,10 @@
     ansible.builtin.apt:
       autoremove: yes
 
+  - name: Ensure server has same time as current timezone --> Europe/Madrid.
+    ansible.builtin.shell: /home/melo/Workdir/timezonefix.sh
+    
+    
   - name: Ensure SSH is secured by passing modified file
     ansible.builtin.copy:
       src: /home/melo/Workdir/ssh_config
@@ -18,4 +22,4 @@
       mode: u+rw,g-wx,o-wx
       backup: yes
       #mode: 0644
-    #register: sshd_config --> get service reloaded
+    register: sshd_config
