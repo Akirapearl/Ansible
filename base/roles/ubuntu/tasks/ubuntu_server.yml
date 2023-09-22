@@ -1,4 +1,11 @@
 ---
+- hosts: ubuntu
+  vars:
+    workdir1: /home/melo/Workdir
+    sshdir: /etc/ssh
+
+  tasks:
+
   - name: Upgrade all packages
     ansible.builtin.apt:
       update_cache: yes
@@ -9,14 +16,18 @@
     ansible.builtin.apt:
       autoremove: yes
 
-  - name: Ensure server has same time as current timezone --> Europe/Madrid.
-    ansible.builtin.shell: /home/melo/Workdir/timezonefix.sh
+  #- name: Ensure server has same time as current timezone --> Europe/Madrid.
+  #  ansible.builtin.shell: "{{ workdir1 }}/timezonefix.sh"
+
+  - name: Set timezone to Europe/Madrid
+    community.general.timezone:
+      name: Europe/Madrid
     
     
   - name: Ensure SSH is secured by passing modified file
     ansible.builtin.copy:
-      src: /home/melo/Workdir/ssh_config
-      dest: /etc/ssh/ssh_config
+      src: "{{ workdir1 }}"/ssh_config
+      dest: "{{ sshdir }}"/ssh_config
       owner: root
       group: root
       mode: u+rw,g-wx,o-wx
