@@ -1,6 +1,17 @@
 ---
 - hosts: ubuntu
   become: yes
+  vars:
+    local_workdir: /home/melo/Workdir/
+    ssh_dir: /etc/ssh/
+    docker_packages: 
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - python3-pip
+    - virtualenv
+    - python3-setuptools
   
   roles: 
     - role: ubuntu
