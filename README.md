@@ -18,13 +18,14 @@
 - Updating packages
 - Managing Services (httpd)
 - Hardening SSH access by disabling password authentication (regex)
-- To-do: Apply cron-job
+- To-do: Apply cron-job to
 
-2. (to-do) One Step further - Local irl server (HP EliteDesk 800 G2 Micro). [1]
-- Installing software to use docker containers
+2. One Step further - Local irl server (HP EliteDesk 800 G2 Micro). [1]
+ > * Objective is to build a functional base line for my own home/minilab, hosted on this device.
+- Installing software - Docker 
 - Hardening SSH by passing config file directly*
 - Idea/Concept: Deploy a local jenkins server for CI/CD learning.
-- Idea/Concept: Use shell/command to get server status at Ansible execution and save as custom log files, if able.
+- Idea/Concept: Use shell/command to get server status at Ansible execution and save as custom log files.
 
 
 > *Previously retrieved by using scp command from same server.
