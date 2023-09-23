@@ -3,19 +3,16 @@
   become : yes
 # This playbook contains basic tasks, my main focus is to get more familiar with how Ansible works as well as 
 # creating a reasonably easy setup that can also be replicated on a production/homelab environment.
-
-#OG way to declare tasks to be performed
-#  tasks:
-#    - import_tasks: tasks/dnf_start.yml
-
- #Now using roles --> Sort of "smaller tasks files"
+  tasks:
   roles:
-    - role: system
+    - system
 
 - hosts: ubuntu
-# This part contains the configurations being applied for my minilab home server.
-# More information on main README file
   become : yes
-  
-  roles: 
-    - role: ubuntu
+# This part contains the configurations being applied for my minilab home server.
+# More information on main README file 
+  tasks:
+    - name: Execute Ubuntu role
+      include_role: 
+        name: ubuntu
+    

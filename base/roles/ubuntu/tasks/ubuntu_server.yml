@@ -1,11 +1,4 @@
 ---
-- hosts: ubuntu
-  vars:
-    workdir1: /home/melo/Workdir
-    sshdir: /etc/ssh
-
-  tasks:
-
   - name: Upgrade all packages
     ansible.builtin.apt:
       update_cache: yes
@@ -26,8 +19,8 @@
     
   - name: Ensure SSH is secured by passing modified file
     ansible.builtin.copy:
-      src: "{{ workdir1 }}"/ssh_config
-      dest: "{{ sshdir }}"/ssh_config
+      src: /home/melo/Workdir/ssh_config
+      dest: /etc/ssh/ssh_config
       owner: root
       group: root
       mode: u+rw,g-wx,o-wx
