@@ -25,3 +25,14 @@
     pip:
       name: docker
 
+  - name: Docker - Install docker-compose
+    apt:
+      pkg: docker-compose
+      state: latest
+      update_cache: yes
+
+  - name: Create a directory for docker-compose
+    ansible.builtin.file:
+      path: /home/melo/docker-compose
+      state: directory
+      mode: '0755'

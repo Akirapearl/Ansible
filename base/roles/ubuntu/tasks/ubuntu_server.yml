@@ -9,15 +9,11 @@
     ansible.builtin.apt:
       autoremove: yes
 
-  #- name: Ensure server has same time as current timezone --> Europe/Madrid.
-  #  ansible.builtin.shell: "{{ workdir1 }}/timezonefix.sh"
-
   - name: Set timezone to Europe/Madrid
     community.general.timezone:
       name: Europe/Madrid
     
-    
-  - name: Ensure SSH is secured by passing modified file
+      - name: Ensure SSH is secured by passing modified file
     ansible.builtin.copy:
       src: '{{ local_workdir }}ssh_config'
       dest: '{{ ssh_dir }}ssh_config'
