@@ -1,4 +1,6 @@
 [lab_vms]
-rocky_web ansible_host=10.0.2.6 ansible_user=melo 
+rocky_web ansible_host=10.0.2.6 ansible_user=melo
+[lab_vms2]
+rocky_compose ansible_host=10.0.2.7 ansible_user=melo
 [ubuntu]
 meloserver ansible_host=192.168.1.129 ansible_user=melo

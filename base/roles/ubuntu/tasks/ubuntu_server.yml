@@ -13,10 +13,12 @@
     community.general.timezone:
       name: Europe/Madrid
     
-      - name: Ensure SSH is secured by passing modified file
+  - name: Ensure SSH is secured by passing modified file
+  #ssh_config: configuration file for the ssh client.
+  #sshd_config: configuration file for the sshd daemon on the host machine. 
     ansible.builtin.copy:
-      src: '{{ local_workdir }}ssh_config'
-      dest: '{{ ssh_dir }}ssh_config'
+      src: '{{ local_workdir }}sshd_config'
+      dest: '{{ ssh_dir }}sshd_config'
       owner: root
       group: root
       mode: u+rw,g-wx,o-wx
@@ -24,3 +26,7 @@
       #mode: 0644
     register: sshd_config
 
+  - name: Restart service sshd 
+    ansible.builtin.service:
+      name: sshd
+      state: restarted

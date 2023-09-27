@@ -2,7 +2,7 @@
 - hosts: ubuntu
   become: yes
   vars:
-    local_workdir: /home/melo/Workdir/
+    local_workdir: /home/melo/Workdir/files/
     ssh_dir: /etc/ssh/
     docker_packages: 
     - apt-transport-https
