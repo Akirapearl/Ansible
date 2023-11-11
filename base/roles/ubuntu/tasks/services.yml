@@ -2,18 +2,4 @@
   - name: Get photoprism config file for docker-compose & Place it locally
     ansible.builtin.shell: cd /home/melo/docker-compose/new && wget https://dl.photoprism.org/docker/docker-compose.yml
 
-#
-# docker pull vaultwarden/server:latest
-# docker run -d --name vaultwarden -v /vw-data/:/data/ --restart unless-stopped -p 80:80 vaultwarden/server:latest
-#
-  - name: Get vaultguard container & start it
-    docker_container:
-      name: vaultwarden
-      image: vaultwarden/server:latest
-      state: started
-      restart_policy: unless-stopped
-      volumes:
-      - /vw-data/:/data/
-      ports:
-     # Publish container port 80 as host port 80
-      - "80:80"
+

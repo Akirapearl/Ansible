@@ -1,0 +1,39 @@
+# To-do
+# - DNS
+# - Certificate
+# docker pull vaultwarden/server:latest
+# docker run -d --name vaultwarden -v /vw-data/:/data/ --restart unless-stopped -p 80:80 vaultwarden/server:latest
+#
+  - name: Get vaultguard container & start it
+    docker_container:
+      name: vaultwarden
+      image: vaultwarden/server:latest
+      state: started
+      restart_policy: unless-stopped
+      volumes:
+      - /vw-data/:/data/
+      exposed_ports:
+      - 80
+# Nginx
+#FROM nginx:1.25.3-alpine
+#COPY /home/melo/docker-compose/nginx/default.conf /etc/nginx/templates/default.conf.template
+  - name: Copy file with owner and permissions 1
+    copy:
+      src: /home/melo/Workdir/Ansible/base/roles/ubuntu/tasks/default.conf
+      dest: /home/melo/docker-compose/nginx/default.conf.template
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: Create NGINX container
+    community.docker.docker_container:
+      name: nginx_proxy
+      image: nginx:1.25.3-alpine
+      state: started
+      restart_policy: unless-stopped
+      volumes:
+      - /home/melo/docker-compose/nginx/:/etc/nginx/templates/    
+      ports:
+     # Publish container port 80 as host port 80
+      - "80:80"
+      - "443:443"
